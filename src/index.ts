@@ -1,4 +1,4 @@
-import { server } from "./server.js";
+import { server } from './server';
 
 const DEFAULT_PORT = 5500;
 const PORT = process.env.PORT || DEFAULT_PORT;
