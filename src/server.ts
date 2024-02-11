@@ -2,7 +2,7 @@ import { createServer, IncomingMessage, ServerResponse } from 'http';
 import { v4 as uuidv4 } from 'uuid';
 import { User } from './types/User';
 
-const baseUrl = '/api/users';
+export const baseUrl = '/api/users';
 const users: User[] = [];
 
 export const server = createServer((req: IncomingMessage, res: ServerResponse) => {
