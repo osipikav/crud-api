@@ -1,4 +1,5 @@
 import { server } from './server';
+import 'dotenv/config';
 
 const DEFAULT_PORT = 5500;
 const PORT = process.env.PORT || DEFAULT_PORT;
