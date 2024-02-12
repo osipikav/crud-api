@@ -68,12 +68,14 @@ export const server = createServer((req: IncomingMessage, res: ServerResponse) =
   } else if (url?.startsWith(baseUrl) && method === 'DELETE') {
     const userId = url.split('/')[3];
     const userIndex = users.findIndex((el) => el.id === userId);
+
     if (!userId || !validUuid(userId)) {
-      sendErrorResponse(res, 400, 'Missing required fields');
+      sendErrorResponse(res, 400, 'Invalid user ID');
     } else if (userIndex === -1) {
       sendErrorResponse(res, 404, 'User not found');
-      const deletedUser = users.splice(userIndex, 1)[0];
-      sendResponse(res, 204, deletedUser);
+    } else {
+      users.splice(userIndex, 1);
+      sendResponse(res, 204, '');
     }
   } else {
     sendErrorResponse(res, 404, 'Endpoint not found');
